@@ -1,6 +1,6 @@
 import LinksDropdown from "./LinksDropdown";
 import { UserButton } from "@clerk/nextjs";
-import ThemeToggle from "./ThemeToggle";
+import { ThemeToggle } from "./ThemeToggle";
 
 function Navbar() {
   return (
