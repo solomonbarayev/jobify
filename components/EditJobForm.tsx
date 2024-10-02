@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 
 import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
-import { createJobAction, getSingleJobAction, updateJobAction } from "@/utils/actions";
+import { getSingleJobAction, updateJobAction } from "@/utils/actions";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { CustomFormField, CustomFormSelect } from "./FormComponent";
