@@ -1,6 +1,5 @@
 import { JobType } from "@/utils/types";
-
-import { MapPin, Briefcase, CalendarDays, RadioTower } from "lucide-react";
+import { MapPin, Briefcase, CalendarDays, RadioTower, ScreenShare } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "./ui/separator";
@@ -26,11 +25,14 @@ const JobCard = ({ job }: { job: JobType }) => {
           <JobInfo icon={<RadioTower className="w-4 h-4" />} text={job.status} />
         </Badge>
       </CardContent>
-      <CardFooter className="flex gap-4">
-        <Button asChild size="sm">
-          <Link href={`/jobs/${job.id}`}>edit</Link>
-        </Button>
-        <DeleteJobBtn id={job.id} />
+      <CardFooter className="flex justify-between">
+        <div className="flex gap-4 ">
+          <Button asChild size="sm">
+            <Link href={`/jobs/${job.id}`}>edit</Link>
+          </Button>
+          <DeleteJobBtn id={job.id} />
+        </div>
+        {job.jobUrl && <JobInfo icon={<ScreenShare />} text={job.jobUrl} link />}
       </CardFooter>
     </Card>
   );

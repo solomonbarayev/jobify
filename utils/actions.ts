@@ -142,7 +142,7 @@ export async function updateJobAction(id: string, values: CreateAndEditJobType):
   const { userId } = auth() as { userId: string };
 
   try {
-    const job: JobType = await prisma.job.update({
+    const job = await prisma.job.update({
       where: {
         id,
         clerkId: userId,
@@ -151,7 +151,8 @@ export async function updateJobAction(id: string, values: CreateAndEditJobType):
         ...values,
       },
     });
-    return job;
+
+    return job as JobType;
   } catch (error) {
     console.error(error);
     return null;

@@ -10,6 +10,7 @@ export type JobType = {
   location: string;
   status: string;
   mode: string;
+  jobUrl: string | null;
 };
 
 export type GetAllJobsActionTypes = {
@@ -43,6 +44,7 @@ export const createAndEditJobSchema = z.object({
   }),
   status: z.nativeEnum(JobStatus),
   mode: z.nativeEnum(JobMode),
+  jobUrl: z.string().optional(),
 });
 
 export type CreateAndEditJobType = z.infer<typeof createAndEditJobSchema>;

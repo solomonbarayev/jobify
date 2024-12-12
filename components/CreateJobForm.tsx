@@ -45,6 +45,7 @@ const CreateJobForm = () => {
       location: "",
       status: JobStatus.Pending,
       mode: JobMode.FullTime,
+      jobUrl: "",
     },
   });
 
@@ -59,6 +60,7 @@ const CreateJobForm = () => {
           <CustomFormField name="location" control={form.control} />
           <CustomFormSelect name="status" control={form.control} items={Object.values(JobStatus)} labelText="job status" />
           <CustomFormSelect name="mode" control={form.control} items={Object.values(JobMode)} labelText="job mode" />
+          <CustomFormField name="jobUrl" labelText="Job Url" control={form.control} />
           <Button type="submit" className="self-end capitalize" disabled={isPending}>
             {isPending ? "Creating..." : "Create Job"}
           </Button>

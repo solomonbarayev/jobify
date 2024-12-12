@@ -48,6 +48,7 @@ function EditJobForm({ jobId }: { jobId: string }) {
       location: data?.location || "",
       status: (data?.status as JobStatus) || JobStatus.Pending,
       mode: (data?.mode as JobMode) || JobMode.FullTime,
+      jobUrl: data?.jobUrl || "",
     },
   });
 
@@ -72,6 +73,10 @@ function EditJobForm({ jobId }: { jobId: string }) {
           {/* job  type */}
           <CustomFormSelect name="mode" control={form.control} labelText="job mode" items={Object.values(JobMode)} />
 
+          {/* job url */}
+          <CustomFormField name="jobUrl" labelText="job url" control={form.control} />
+
+          {/* submit button */}
           <Button type="submit" className="self-end capitalize" disabled={isPending}>
             {isPending ? "updating..." : "edit job"}
           </Button>
